@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayanta Kumar Kakati - Electrical Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ff88;
+            --secondary: #0099ff;
+            --accent: #ff0066;
+            --dark: #0a0e27;
+            --dark-blue: #1a1f3a;
+            --light: #e0e6ff;
+            --gradient: linear-gradient(135deg, #00ff88 0%, #0099ff 50%, #7b2ff7 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: var(--primary);
+            opacity: 0.1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .circuit-line:nth-child(1) { width: 2px; height: 100%; left: 10%; animation-delay: 0s; }
+        .circuit-line:nth-child(2) { width: 100%; height: 2px; top: 20%; animation-delay: 0.5s; }
+        .circuit-line:nth-child(3) { width: 2px; height: 100%; left: 50%; animation-delay: 1s; }
+        .circuit-line:nth-child(4) { width: 100%; height: 2px; top: 60%; animation-delay: 1.5s; }
+        .circuit-line:nth-child(5) { width: 2px; height: 100%; left: 80%; animation-delay: 2s; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.05; }
+            50% { opacity: 0.15; }
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: float 20s infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(100px, -100px); }
+            50% { transform: translate(-50px, -200px); }
+            75% { transform: translate(150px, -150px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-btn {
+            padding: 0.7rem 1.5rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .contact-btn.email { border-color: var(--secondary); color: var(--secondary); }
+        .contact-btn.email:hover { background: var(--secondary); }
+        
+        .contact-btn.phone { border-color: var(--accent); color: var(--accent); }
+        .contact-btn.phone:hover { background: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(224, 230, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(224, 230, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: var(--gradient);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Document Buttons */
+        .document-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .doc-btn {
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 153, 255, 0.1));
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .doc-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .doc-btn:hover::before {
+            left: 0;
+        }
+
+        .doc-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
+            border-color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            animation: expandWidth 1s ease-out;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(10, 14, 39, 0.8));
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .experience-card:hover::before {
+            left: 100%;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .experience-period {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 0, 102, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 0, 102, 0.3);
+        }
+
+        .experience-description {
+            color: rgba(224, 230, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .experience-description ul {
+            margin-top: 1rem;
+            list-style: none;
+        }
+
+        .experience-description li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .experience-description li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 153, 255, 0.05));
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .skill-category h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: scale(1.05);
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.6), rgba(10, 14, 39, 0.6));
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateX(10px);
+            box-shadow: -10px 10px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .education-degree {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-institution {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-year {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-percentage {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(10, 14, 39, 0.8));
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 153, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .project-card:hover::after {
+            top: -100%;
+            right: -100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 60px rgba(0, 153, 255, 0.3);
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-tech {
+            color: rgba(224, 230, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            color: rgba(224, 230, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        .footer-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .image-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">JKK</div>
+            <div class="contact-buttons">
+                <a href="https://linkedin.com/in/jayantakakati" class="contact-btn linkedin" target="_blank">
+                    <span>🔗</span> LinkedIn
+                </a>
+                <a href="mailto:jayantakumarkakati1999@gmail.com" class="contact-btn email">
+                    <span>📧</span> Email
+                </a>
+                <a href="tel:+918486280640" class="contact-btn phone">
+                    <span>📞</span> Call
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">JAYANTA KUMAR KAKATI</h1>
+            <p class="hero-subtitle">Electrical Engineer | Educator | Tech Enthusiast</p>
+            <p class="hero-description">
+                Detail-oriented and result-driven professional with 3+ years of combined experience in electrical engineering and education. Specializing in power systems, instrumentation, industrial automation, and technical training.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">81%</span>
+                    <span class="stat-label">Academic Score</span>
+                </div>
+            </div>
+
+            <!-- Document Buttons -->
+            <!-- TO ADD YOUR DOCUMENT LINKS:
+                 Replace the "#" with your actual PDF/document links
+                 Example: href="https://drive.google.com/file/d/YOUR_FILE_ID/view"
+                 or href="./documents/resume.pdf" if hosting files in the same repo -->
+            <div class="document-buttons">
+                <a href="#" class="doc-btn" onclick="alert('Add your Resume PDF link here!')">📄 Resume PDF</a>
+                <a href="#" class="doc-btn" onclick="alert('Add your Certificates link here!')">🎓 Certificates</a>
+                <a href="#" class="doc-btn" onclick="alert('Add your Projects link here!')">📊 Projects</a>
+                <a href="#" class="doc-btn" onclick="alert('Add your Documents link here!')">📜 Documents</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="image-container">
+                <img src="/mnt/user-data/uploads/JAYANTA_KUMAR_KAKATI.pdf" alt="Jayanta Kumar Kakati" class="profile-pic" id="profilePic">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Graduate Teacher</h3>
+                        <p class="experience-company">Sankardev Sishu Niketan, Karara</p>
+                    </div>
+                    <div class="experience-period">Apr 2023 - Jan 2025</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Delivered comprehensive instruction in core subjects to secondary level students</li>
+                        <li>Developed and implemented engaging curriculum aligned with educational standards</li>
+                        <li>Mentored students in academic excellence and personal development</li>
+                        <li>Utilized modern teaching methodologies and technology integration</li>
+                        <li>Maintained consistent track record of student achievement and growth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Graduate Apprentice Trainee (GAT)</h3>
+                        <p class="experience-company">Numaligarh Refinery Limited - Electrical Maintenance</p>
+                    </div>
+                    <div class="experience-period">1 Year</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li><strong>Power Distribution Management:</strong> Executed proactive troubleshooting and fault isolation on HT/LT electrical panels, distribution breakers, and cabling infrastructure</li>
+                        <li><strong>Machinery Protection:</strong> Managed routine inspection and maintenance of motor protection systems for high-value rotating machinery (pumps, compressors)</li>
+                        <li><strong>Process Control:</strong> Performed specialized maintenance and calibration of Motor Operated Valves (MOVs) for material flow control</li>
+                        <li><strong>Safety & Compliance:</strong> Maintained technical logs using MS Excel, adhered to LOTO systems and industrial safety protocols</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="fade-in">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3 class="education-degree">B.E. Electrical Engineering</h3>
+                <p class="education-institution">Bineswar Brahma Engineering College</p>
+                <p class="education-year">2021 | Assam Science And Technology University</p>
+                <p class="education-percentage">81.23%</p>
+            </div>
+            <div class="education-card">
+                <h3 class="education-degree">PGDCA (Computer)</h3>
+                <p class="education-institution">MK Tech</p>
+                <p class="education-year">2022 | E-Max Council</p>
+                <p class="education-percentage">78%</p>
+            </div>
+            <div class="education-card">
+                <h3 class="education-degree">Higher Secondary (HS)</h3>
+                <p class="education-institution">Pub Kamrup College</p>
+                <p class="education-year">2016 | AHSEC</p>
+                <p class="education-percentage">75.80%</p>
+            </div>
+            <div class="education-card">
+                <h3 class="education-degree">HSLC</h3>
+                <p class="education-institution">Sankardev Sishu Niketan</p>
+                <p class="education-year">2014 | SEBA</p>
+                <p class="education-percentage">75.80%</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="fade-in">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Core Electrical</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Power Systems</span>
+                    <span class="skill-tag">HT/LT Panels</span>
+                    <span class="skill-tag">Transformers</span>
+                    <span class="skill-tag">Motor Protection</span>
+                    <span class="skill-tag">Relay Protection</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Instrumentation</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MOV Calibration</span>
+                    <span class="skill-tag">Sensor Integration</span>
+                    <span class="skill-tag">Process Control</span>
+                    <span class="skill-tag">Panel Troubleshooting</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Automation & IoT</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">ESP8266</span>
+                    <span class="skill-tag">SCADA Systems</span>
+                    <span class="skill-tag">Visual Studio</span>
+                    <span class="skill-tag">Embedded Systems</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Software & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MS Excel</span>
+                    <span class="skill-tag">MS Office</span>
+                    <span class="skill-tag">Photoshop</span>
+                    <span class="skill-tag">Documentation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+        <h2 class="section-title">Technical Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3 class="project-title">IoT-Based Home Security System</h3>
+                <p class="project-tech"><strong>Technology:</strong> ESP8266 WiFi Module Integration, Sensor Interfacing, Real-time monitoring and alert system</p>
+            </div>
+            <div class="project-card">
+                <h3 class="project-title">Water Level & Fire Detection System</h3>
+                <p class="project-tech"><strong>Technology:</strong> Arduino, Microcontroller, Multi-sensor Integration, IQ2 Sensor for enhanced detection</p>
+            </div>
+            <div class="project-card">
+                <h3 class="project-title">Analog Gas Sensor Warning System</h3>
+                <p class="project-tech"><strong>Technology:</strong> Gas Sensor, LED/LCD Display, Buzzer Alert, Serial Monitor Logic</p>
+            </div>
+            <div class="project-card">
+                <h3 class="project-title">Integrated SCADA System Design</h3>
+                <p class="project-tech"><strong>Technology:</strong> Arduino Integration, Visual Studio Interface Development, Industrial automation control</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training" class="fade-in">
+        <h2 class="section-title">Training & Certifications</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3 class="experience-title">Internships & Industrial Training</h3>
+                <div class="experience-description">
+                    <ul>
+                        <li>1 Year GAT - Numaligarh Refinery Limited (Electrical Maintenance)</li>
+                        <li>1 Month IoT Training - Electronics and ICT Academy, IIT Guwahati</li>
+                        <li>15 Days - Energy Distribution Training, APDCL Assam</li>
+                        <li>15 Days - Energy Generation Training, NTPC Bongaigaon</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-card">
+                <h3 class="experience-title">Specialized Workshops</h3>
+                <div class="experience-description">
+                    <ul>
+                        <li>Embedded Systems and IoT Workshop</li>
+                        <li>Integrated SCADA Designing with Arduino and Visual Studio</li>
+                        <li>3 Months Computer Course (MS Office, Photoshop, Windows OS)</li>
+                        <li>1 Year Post Graduate Diploma in Computer Application (PGDCA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 <span class="footer-highlight">Jayanta Kumar Kakati</span> | Electrical Engineer & Educator
+            </p>
+            <p class="footer-text" style="margin-top: 0.5rem;">
+                📍 Radhakuchi, Baihata Chariali, Kamrup, Assam - 781381
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Particles Animation
+        function createParticles() {
+            const bgAnimation = document.querySelector('.bg-animation');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                bgAnimation.appendChild(particle);
+            }
+        }
+
+        // Scroll Animation
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        window.addEventListener('load', () => {
+            createParticles();
+            handleScrollAnimation();
+            
+            // Set profile picture
+            // TO ADD YOUR PHOTO: 
+            // 1. Save your photo as 'profile.jpg' in the same folder as this HTML file
+            // 2. Or replace 'profile.jpg' below with the path to your photo
+            // 3. For GitHub Pages, commit the image file along with index.html
+            const profilePic = document.getElementById('profilePic');
+            profilePic.src = 'profile.jpg'; // Change this to your actual image filename
+            
+            // Fallback placeholder if image doesn't load
+            profilePic.onerror = function() {
+                this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Crect fill="%231a1f3a" width="400" height="400"/%3E%3Ctext x="50%25" y="50%25" font-family="Orbitron" font-size="60" fill="%2300ff88" text-anchor="middle" dy=".3em"%3EJKK%3C/text%3E%3C/svg%3E';
+            };
+        });
+
+        window.addEventListener('scroll', handleScrollAnimation);
+
+        // Dynamic year update
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearElements = document.querySelectorAll('.footer-text');
+            yearElements.forEach(el => {
+                if (el.textContent.includes('© 2025')) {
+                    el.innerHTML = el.innerHTML.replace('2025', new Date().getFullYear());
+                }
+            });
+        });
+    </script>
+</body>
+</html>
