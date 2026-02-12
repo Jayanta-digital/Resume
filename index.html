@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jayanta Kumar Kakati - Electrical Engineer</title>
+    
+    <!-- Google Analytics 4 -->
+    <!-- REPLACE 'G-QXKMWH9L2L' WITH YOUR ACTUAL GA4 MEASUREMENT ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QXKMWH9L2L'); // Replace with your GA4 ID
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <!-- REPLACE 'vg7elhdiog' WITH YOUR ACTUAL CLARITY PROJECT ID -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vg7elhdiog");
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -685,8 +706,7 @@
             background: var(--primary);
             border-radius: 5px;
         }
-
-        ::-webkit-scrollbar-thumb:hover {
+  ::-webkit-scrollbar-thumb:hover {
             background: var(--secondary);
         }
     </style>
@@ -704,16 +724,15 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <div class="logo">JK.Kakati</div>
+            <div class="logo">JKK</div>
             <div class="contact-buttons">
-                <a href="https://linkedin.com/in/jayantakakati" class="contact-btn linkedin" target="_blank">
+                <a href="https://linkedin.com/in/jayantakakati" class="contact-btn linkedin" target="_blank" onclick="trackEvent('contact', 'click', 'linkedin')">
                     <span>🔗</span> LinkedIn
                 </a>
-                <a href="mailto:jayantakumarkakati1999@gmail.com" class="contact-btn email">
+                <a href="mailto:jayantakumarkakati1999@gmail.com" class="contact-btn email" onclick="trackEvent('contact', 'click', 'email')">
                     <span>📧</span> Email
                 </a>
-                <a href="tel:+918486280640" class
-                    ="contact-btn phone">
+                <a href="tel:+918486280640" class="contact-btn phone" onclick="trackEvent('contact', 'click', 'phone')">
                     <span>📞</span> Call
                 </a>
             </div>
@@ -744,23 +763,18 @@
                 </div>
             </div>
 
-            <!-- Document Buttons -->
-            <!-- TO ADD YOUR DOCUMENT LINKS:
-                 Replace the "#" with your actual PDF/document links
-                 Example: href="https://drive.google.com/file/d/YOUR_FILE_ID/view"
-                 or href="./documents/resume.pdf" if hosting files in the same repo -->
+            <!-- Document Buttons with Analytics Tracking -->
             <div class="document-buttons">
-                <a href="./documents/resume.pdf" class="doc-btn" onclick="alert('Want to see resume!')">📄 Resume</a>
-                <a href="./documents/certificates.pdf" class="doc-btn" onclick="alert('Want to see certificates!')">🎓 Certificates</a>
-               <a href="#" class="doc-btn" onclick="alert('want to see my projects!')">📊 Projects</a>
-              
-                <a href="./documents/all-documents.pdf" class="doc-btn" onclick="alert('Want to see academic recordes!')">📜 Documents</a>
+                <a href="href="./documents/resume.pdf" class="doc-btn" target="_blank" onclick="trackDownload('resume', this.href)">📄 Resume PDF</a>
+                <a href="href="./documents/certificates.pdf" class="doc-btn" target="_blank" onclick="trackDownload('certificates', this.href)">🎓 Certificates</a>
+                <a href="#" class="doc-btn" target="_blank" onclick="trackDownload('projects', this.href)">📊 Projects</a>
+                <a href="href="./documents/all-documents.pdf"" class="doc-btn" target="_blank" onclick="trackDownload('documents', this.href)">📜 Documents</a>
             </div>
         </div>
 
         <div class="hero-image">
             <div class="image-container">
-                <img src="/mnt/user-data/uploads/JAYANTA_KUMAR_KAKATI.pdf" alt="Jayanta Kumar Kakati" class="profile-pic" id="profilePic">
+                <img src="profile.jpg" alt="Jayanta Kumar Kakati" class="profile-pic" id="profilePic">
             </div>
         </div>
     </section>
@@ -773,7 +787,7 @@
                 <div class="experience-header">
                     <div>
                         <h3 class="experience-title">Graduate Teacher</h3>
-                    <!--    <p class="experience-company">Sankardev Sishu Niketan, Karara</p> -->
+                        <p class="experience-company">Sankardev Sishu Niketan, Karara</p>
                     </div>
                     <div class="experience-period">Apr 2023 - Jan 2025</div>
                 </div>
@@ -794,8 +808,8 @@
                         <h3 class="experience-title">Graduate Apprentice Trainee (GAT)</h3>
                         <p class="experience-company">Numaligarh Refinery Limited - Electrical Maintenance</p>
                     </div>
-                    <div class="experience-period">Feb 2022 - Feb 2023 </div>
-                </div
+                    <div class="experience-period">1 Year</div>
+                </div>
                 <div class="experience-description">
                     <ul>
                         <li><strong>Power Distribution Management:</strong> Executed proactive troubleshooting and fault isolation on HT/LT electrical panels, distribution breakers, and cabling infrastructure</li>
@@ -860,36 +874,25 @@
                     <span class="skill-tag">Sensor Integration</span>
                     <span class="skill-tag">Process Control</span>
                     <span class="skill-tag">Panel Troubleshooting</span>
-                    <span class="skill-tag">Different type of Wiring Home or Industry</span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Automation & IoT</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Arduino and Modules</span>
-                    <span class="skill-tag">ESP8266 Home Automation</span>
-                    <span class="skill-tag">Industry 4.0</span>
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">ESP8266</span>
+                    <span class="skill-tag">SCADA Systems</span>
                     <span class="skill-tag">Visual Studio</span>
-                    <span class="skill-tag">Basics of SCADA Embedded Systems</a></span>
+                    <span class="skill-tag">Embedded Systems</span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Software & Tools</h3>
                 <div class="skill-tags">
+                    <span class="skill-tag">MS Excel</span>
                     <span class="skill-tag">MS Office</span>
-                    <span class="skill-tag">Fullstack Website Development</span>
                     <span class="skill-tag">Photoshop</span>
                     <span class="skill-tag">Documentation</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Soft-Skills</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Leadership Skill</span>
-                    <span class="skill-tag">Presentation Skill</span>
-                    <span class="skill-tag">Analytical Skill</span>
-                    <span class="skill-tag">Communication Skill</span>
-                    
                 </div>
             </div>
         </div>
@@ -913,7 +916,7 @@
             </div>
             <div class="project-card">
                 <h3 class="project-title">Integrated SCADA System Design</h3>
-                <p class="project-tech"><strong>Technology:</strong> Arduino and module Integration, Visual Studio Interface Development, Industrial automation control</p>
+                <p class="project-tech"><strong>Technology:</strong> Arduino Integration, Visual Studio Interface Development, Industrial automation control</p>
             </div>
         </div>
     </section>
@@ -960,6 +963,68 @@
     </footer>
 
     <script>
+        // Analytics Tracking Functions
+        function trackEvent(category, action, label) {
+            // Google Analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label
+                });
+            }
+            
+            // Microsoft Clarity custom tag
+            if (typeof clarity !== 'undefined') {
+                clarity('set', category, label);
+            }
+        }
+
+        function trackDownload(documentType, url) {
+            // Track document views/downloads
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'file_download', {
+                    'event_category': 'document',
+                    'event_label': documentType,
+                    'value': url
+                });
+            }
+            
+            if (typeof clarity !== 'undefined') {
+                clarity('set', 'download', documentType);
+            }
+        }
+
+        // Track time on page
+        let startTime = new Date().getTime();
+        window.addEventListener('beforeunload', function() {
+            let timeSpent = Math.floor((new Date().getTime() - startTime) / 1000);
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'time_on_site', {
+                    'event_category': 'engagement',
+                    'event_label': 'seconds',
+                    'value': timeSpent
+                });
+            }
+        });
+
+        // Track scroll depth
+        let maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            let scrollPercent = Math.floor((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+                if (maxScroll >= 25 && maxScroll < 50) {
+                    trackEvent('scroll', 'depth', '25%');
+                } else if (maxScroll >= 50 && maxScroll < 75) {
+                    trackEvent('scroll', 'depth', '50%');
+                } else if (maxScroll >= 75 && maxScroll < 100) {
+                    trackEvent('scroll', 'depth', '75%');
+                } else if (maxScroll >= 100) {
+                    trackEvent('scroll', 'depth', '100%');
+                }
+            }
+        });
+
         // Particles Animation
         function createParticles() {
             const bgAnimation = document.querySelector('.bg-animation');
@@ -1006,15 +1071,15 @@
             createParticles();
             handleScrollAnimation();
             
-            // Set profile picture
-            // TO ADD YOUR PHOTO: 
-            // 1. Save your photo as 'profile.jpg' in the same folder as this HTML file
-            // 2. Or replace 'profile.jpg' below with the path to your photo
-            // 3. For GitHub Pages, commit the image file along with index.html
-            const profilePic = document.getElementById('profilePic');
-            profilePic.src = 'profile.jpg'; // Change this to your actual image filename
+            // Track page view
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    'page_title': 'Portfolio Home',
+                    'page_location': window.location.href
+                });
+            }
             
-            // Fallback placeholder if image doesn't load
+            const profilePic = document.getElementById('profilePic');
             profilePic.onerror = function() {
                 this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Crect fill="%231a1f3a" width="400" height="400"/%3E%3Ctext x="50%25" y="50%25" font-family="Orbitron" font-size="60" fill="%2300ff88" text-anchor="middle" dy=".3em"%3EJKK%3C/text%3E%3C/svg%3E';
             };
