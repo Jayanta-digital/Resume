@@ -32,6 +32,7 @@
         :root {
             --primary: #00ff88;
             --secondary: #0099ff;
+            --whatsapp: #6e2c9a;
             --accent: #ff0066;
             --dark: #0a0e27;
             --dark-blue: #1a1f3a;
@@ -171,6 +172,9 @@
         
         .contact-btn.phone { border-color: var(--accent); color: var(--accent); }
         .contact-btn.phone:hover { background: var(--accent); }
+
+        .contact-btn.whatsapp { border-color: var(--whatsapp); color: var(--whatsapp); }
+        .contact-btn.phone:hover { background: var(--whatsapp); }
 
         /* Hero Section */
         .hero {
@@ -735,7 +739,7 @@
                 <a href="tel:+918486280640" class="contact-btn phone" onclick="trackEvent('contact', 'click', 'phone')">
                     <span>📞</span> Call
                 </a>
-                <a href="https://wa.me/?text=[Kindly Check profile]%20[https://jayanta-digital.github.io/Resume/]" target="_blank" class="contact-btn phone" onclick="trackEvent('contact', 'click', 'phone')">
+                <a href="https://wa.me/?text=[Kindly Check profile]%20[https://jayanta-digital.github.io/Resume/]" target="_blank" class=".contact-btn whatsapp" onclick="trackEvent('contact', 'click', 'phone')">
                     <span>🔄</span> Share on WhatsApp
                 </a>
                 
